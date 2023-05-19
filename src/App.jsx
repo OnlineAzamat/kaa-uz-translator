@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import KaaUzTrans from "./components/kaaUzTrans"
 import './App.css';
+import Home from "./components/Home";
 
 function App() {
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<KaaUzTrans />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   )

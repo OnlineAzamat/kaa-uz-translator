@@ -1,8 +1,9 @@
 import { Box, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import Textarea from "./Textarea";
+import SelectLang from "./SelectLang";
 
-const KaaUzTrans = () => {
+const Home = () => {
   return (
     <Box>
       <header>
@@ -27,6 +28,7 @@ const KaaUzTrans = () => {
             <Button variant="outlined" sx={{ textTransform: 'capitalize', ml: '10px' }}>Cryllic to latin</Button>
             <Button variant="outlined" sx={{ textTransform: 'capitalize', ml: '10px' }}>Latin to cryllic</Button>
           </div>
+          <SelectLang />
         </Box>
         <Textarea />
       </Box>
@@ -34,4 +36,4 @@ const KaaUzTrans = () => {
   )
 }
 
-export default KaaUzTrans
+export default Home
