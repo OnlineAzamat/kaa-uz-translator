@@ -1,51 +1,52 @@
 import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export default function SelectLang() {
-  const [age, setAge] = React.useState('');
+  const [til, setTil] = React.useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
-    let til = event.target.value;
+    let til_event = event.target.value;
 
-    if(til == "kaa") {
-      setAge("uz")
+    if(til_event == "kaa") {
+      setTil("uz")
+      window.localStorage.setItem("til1", "kaa")
+      window.localStorage.setItem("til2", "uz")
     } else {
-      setAge("kaa")
+      setTil("kaa")
+      window.localStorage.setItem("til2", "kaa")
+      window.localStorage.setItem("til1", "uz")
     }
   };
 
   return (
     <div>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+        <InputLabel id="demo-simple-select-helper-label">Til</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          value="selected"
           label="Til"
           onChange={handleChange}
+          title="Kiritilgen tekst tili"
         >
-          <MenuItem value="kaa">Qaraqalpaqsha</MenuItem>
+          <MenuItem value="kaa" selected="selected">Qaraqalpaqsha</MenuItem>
           <MenuItem value="uz">O'zbekcha</MenuItem>
         </Select>
-        <FormHelperText>With label + helper text</FormHelperText>
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <Select
-          value={age}
-          onChange={handleChange}
           displayEmpty
+          value={til}
           inputProps={{ 'aria-label': 'Without label' }}
+          title="Awdarmalangan tekst tili"
+          disabled
         >
           <MenuItem value="kaa">Qaraqalpaqsha</MenuItem>
-          <MenuItem value="uz">O'zbekcha</MenuItem>
+          <MenuItem value="uz" selected="selected">O'zbekcha</MenuItem>
         </Select>
-        <FormHelperText>Without label</FormHelperText>
       </FormControl>
     </div>
   );

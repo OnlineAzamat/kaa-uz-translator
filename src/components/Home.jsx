@@ -1,5 +1,4 @@
-import { Box, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box } from "@mui/material";
 import Textarea from "./Textarea";
 import SelectLang from "./SelectLang";
 
@@ -20,13 +19,6 @@ const Home = () => {
       }}>
         <Box>
           <div className="control">
-            <Button variant="outlined" sx={{ textTransform: 'capitalize' }} disabled>
-              <Link to="/">
-                Language
-              </Link>
-            </Button>
-            <Button variant="outlined" sx={{ textTransform: 'capitalize', ml: '10px' }}>Cryllic to latin</Button>
-            <Button variant="outlined" sx={{ textTransform: 'capitalize', ml: '10px' }}>Latin to cryllic</Button>
           </div>
           <SelectLang />
         </Box>

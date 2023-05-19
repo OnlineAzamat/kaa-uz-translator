@@ -1,4 +1,12 @@
 .textarea-wrapper {
   width: 100%;
-  border: 1px solid blue;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.textarea-wrapper textarea {
+  width: 100%;
+  min-height: 450px;
+  padding: 0.7rem;
+  resize: none;
 }
