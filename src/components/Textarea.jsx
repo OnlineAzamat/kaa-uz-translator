@@ -1,10 +1,10 @@
-import { Box } from "@mui/material"
+import { Box } from "@mui/material";
 import axios from "axios";
 import { useState } from "react";
 
 function Textarea() {
 
-  const [juwap, setJuwap] = useState({})
+  const [juwap, setJuwap] = useState(null)
 
   function translate(e) {
     const data = {
@@ -22,13 +22,31 @@ function Textarea() {
       .catch(err => {
         console.log(err)
       })
-
-    console.log(juwap);
+    
+    setText(e.target.value)
   }
+
+  const [text, setText] = useState('');
+
+  const handleKeyPress = e => {
+    if (e.target.value.length >= 99) {
+      e.target.style.border = '2px solid red';
+    } else {
+      e.target.style.border = 'none';
+    }
+  };
 
   return (
     <div className="textarea-wrapper">
-      <textarea placeholder="Text..." onChange={translate} />
+      <Box sx={{ position: "relative", width: "100%" }}>
+        <textarea 
+          placeholder="Text..." 
+          maxLength={100}
+          onKeyDown={handleKeyPress}
+          onChange={translate}
+        />
+        <div className="limit">{text.length} / 100</div>
+      </Box>
       <textarea value={juwap}></textarea>
     </div>
   )
