@@ -33,7 +33,7 @@ export default function SelectLang() {
           title="Kiritilgen tekst tili"
         >
           <MenuItem value="kaa" selected="selected">Qaraqalpaqsha</MenuItem>
-          <MenuItem value="uz">O'zbekcha</MenuItem>
+          <MenuItem value="uz">Ozbekcha</MenuItem>
         </Select>
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
@@ -45,7 +45,7 @@ export default function SelectLang() {
           disabled
         >
           <MenuItem value="kaa">Qaraqalpaqsha</MenuItem>
-          <MenuItem value="uz" selected="selected">O'zbekcha</MenuItem>
+          <MenuItem value="uz" selected="selected">Ozbekcha</MenuItem>
         </Select>
       </FormControl>
     </div>

@@ -6,7 +6,22 @@ const Home = () => {
   return (
     <Box>
       <header>
-        Translate
+        <nav className="uk-navbar-container">
+          <div className="uk-container">
+              <div>
+                  <div className="uk-navbar-left">
+
+                      <ul className="uk-navbar-nav">
+                          <li className="uk-active"><a href="#">Home</a></li>
+                          <li>
+                              <a href="#">Cyrllic to latin</a>
+                          </li>
+                          <li><a href="#">About us</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </nav>
       </header>
 
       <Box sx={{

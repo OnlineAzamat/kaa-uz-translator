@@ -1,10 +1,11 @@
 import { Box } from "@mui/material";
 import axios from "axios";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function Textarea() {
 
-  const [juwap, setJuwap] = useState(null)
+  const [juwap, setJuwap] = useState("")
+  const [clean, setClean] = useState(null)
 
   function translate(e) {
     const data = {
@@ -22,32 +23,38 @@ function Textarea() {
       .catch(err => {
         console.log(err)
       })
-    
     setText(e.target.value)
+
+    e.target.style.borderColor = e.target.value.length >= 99 ? 'red' : 'black'
+    setClean(e.target.value.length >= 1 ? <span className="clean"><i className="bi bi-x-lg"></i></span> : null)
   }
 
   const [text, setText] = useState('');
+  const tekst = useRef(null)
 
-  const handleKeyPress = e => {
-    if (e.target.value.length >= 99) {
-      e.target.style.border = '2px solid red';
-    } else {
-      e.target.style.border = 'none';
-    }
-  };
+  function tekser() {
+    tekst.current.value = "";
+  }
 
   return (
     <div className="textarea-wrapper">
       <Box sx={{ position: "relative", width: "100%" }}>
         <textarea 
-          placeholder="Text..." 
+          placeholder="Tekst kiritiń..." 
           maxLength={100}
-          onKeyDown={handleKeyPress}
           onChange={translate}
+          ref={tekst}
         />
         <div className="limit">{text.length} / 100</div>
+        <span onClick={tekser}>
+          {
+            clean
+          }
+        </span>
       </Box>
-      <textarea value={juwap}></textarea>
+      <Box sx={{ width: "100%" }}>
+        <textarea value={juwap} placeholder="Awdarması..."></textarea>
+      </Box>
     </div>
   )
 }
