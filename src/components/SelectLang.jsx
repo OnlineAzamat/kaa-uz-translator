@@ -7,6 +7,9 @@ import Select from '@mui/material/Select';
 export default function SelectLang() {
   const [til, setTil] = React.useState('');
 
+  const til1 = window.localStorage.getItem('til1');
+  const til2 = window.localStorage.getItem('til2');
+
   const handleChange = (event) => {
     let til_event = event.target.value;
 
@@ -31,21 +34,22 @@ export default function SelectLang() {
           label="Til"
           onChange={handleChange}
           title="Kiritilgen tekst tili"
+          value={til1 ? til1 : "kaa"}
         >
-          <MenuItem value="kaa" selected="selected">Qaraqalpaqsha</MenuItem>
-          <MenuItem value="uz">Ozbekcha</MenuItem>
+          <MenuItem value="kaa">Qaraqalpaqsha</MenuItem>
+          <MenuItem value="uz">O'zbekcha</MenuItem>
         </Select>
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <Select
           displayEmpty
-          value={til}
           inputProps={{ 'aria-label': 'Without label' }}
           title="Awdarmalangan tekst tili"
+          value={til2 ? til2 : "uz"}
           disabled
         >
           <MenuItem value="kaa">Qaraqalpaqsha</MenuItem>
-          <MenuItem value="uz" selected="selected">Ozbekcha</MenuItem>
+          <MenuItem value="uz">O'zbekcha</MenuItem>
         </Select>
       </FormControl>
     </div>

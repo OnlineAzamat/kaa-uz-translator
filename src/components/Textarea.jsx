@@ -1,6 +1,8 @@
-import { Box } from "@mui/material";
 import axios from "axios";
 import { useRef, useState } from "react";
+import { Box } from "@mui/material";
+import ContentPasteIcon from '@mui/icons-material/ContentPaste';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 function Textarea() {
 
@@ -36,24 +38,39 @@ function Textarea() {
     tekst.current.value = "";
   }
 
+  function pasteText() {
+    navigator.clipboard.readText()
+      .then(cliptext => tekst.current.value = cliptext)
+    console.log(navigator.clipboard.readText())
+  }
+  function copyText() {
+    navigator.clipboard.writeText('a')
+  }
+
   return (
     <div className="textarea-wrapper">
       <Box sx={{ position: "relative", width: "100%" }}>
-        <textarea 
-          placeholder="Tekst kiritiń..." 
-          maxLength={100}
-          onChange={translate}
-          ref={tekst}
-        />
-        <div className="limit">{text.length} / 100</div>
         <span onClick={tekser}>
           {
             clean
           }
         </span>
+        <textarea 
+          placeholder="Tekst kiritiń..." 
+          maxLength={5000}
+          onChange={translate}
+          ref={tekst}
+        />
+        <div className="control">
+          <div className="paste" onClick={pasteText}><ContentPasteIcon /></div>
+          <div className="limit">{text.length} / 5000</div>
+        </div>
       </Box>
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ position: "relative", width: "100%" }}>
         <textarea value={juwap} placeholder="Awdarması..."></textarea>
+        <div className="control">
+          <div className="copy"><ContentCopyIcon /></div>
+        </div>
       </Box>
     </div>
   )

@@ -1,6 +1,15 @@
-header {
-  font-size: 2rem;
+.navbar-container {
+  height: 70px;
+
 }
+
+.navbar-container ul {
+  display: flex;
+  list-style-type: none;
+  gap: 1rem;
+}
+
+
 
 .textarea-wrapper {
   width: 100%;
@@ -53,8 +62,19 @@ header {
   height: 100%;
 }
 
-.limit {
+.control {
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  padding: 0.7rem;
+  justify-content: space-between;
+}
+.paste, .copy {
+  cursor: pointer;
+}
+
+.paste:hover > *, .copy:hover > * {
+  transform: scale(1.15);
 }
