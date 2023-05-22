@@ -50,7 +50,7 @@ function Textarea() {
 
   return (
     <div className="textarea-wrapper">
-      <Box sx={{ position: "relative", width: "100%" }}>
+      <Box sx={{ position: "relative", width: "100%", padding: "0.7rem 2rem 2rem 0.7rem", borderRadius: "1rem", border: "1px solid black", height: "500px" }}>
         <span onClick={tekser}>
           {
             clean
@@ -64,14 +64,14 @@ function Textarea() {
           ref={tekst}
         />
         <div className="text-control">
-          <div className="paste" onClick={pasteText}><ContentPasteIcon /></div>
+          <div className="paste-copy" onClick={pasteText}><ContentPasteIcon />Paste</div>
           <div className="limit" style={{ userSelect: "none" }}>{text.length} / 5000</div>
         </div>
       </Box>
-      <Box sx={{ position: "relative", width: "100%" }}>
+      <Box sx={{ position: "relative", padding: "0.7rem 2rem 2rem 0.7rem", borderRadius: "1rem", width: "100%", border: "1px solid #fff", height: "500px", background: "#efefef" }}>
         <textarea value={juwap} placeholder="Awdarması..." ref={result_text}></textarea>
         <div className="text-control">
-          <div className="copy" onClick={copyText}><ContentCopyIcon /></div>
+          <div className="paste-copy" onClick={copyText}><ContentCopyIcon />Copy</div>
         </div>
       </Box>
     </div>

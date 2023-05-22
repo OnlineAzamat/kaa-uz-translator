@@ -3,6 +3,7 @@ import './App.css';
 import Home from "./components/Home";
 import Transliteration from "./components/Transliteration"
 import About from "./components/About";
+import i18n from "./lang/i18";
 
 function App() {
 
