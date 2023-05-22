@@ -5,21 +5,20 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <Box>
-      <List component="nav" sx={{ display: "flex", flexWrap: { lg: "nowrap", md: "wrap" } }}>
-        <ListItem button sx={{ width: { xs: "auto", md: "100%"} }}>
+    <Box sx={{ padding: { xs: "10px" } }}>
+      <List component="nav" sx={{ display: "flex", flexWrap: { md: "nowrap", xs: "wrap", sm: "nowrap" }, fontSize: { xs: "0.9rem" } }}>
+        <ListItem button sx={{ width: { md: "auto", xs: "100%", sm: "100%" }, padding: { xs: "3px 5px", sm: "8px 16px" } }}>
           <Link to="/">Home</Link>
         </ListItem>
-        <ListItem button sx={{ width: { xs: "auto", md: "100%"} }}>
+        <ListItem button sx={{ width: { md: "auto", xs: "100%", sm: "100%" }, padding: { xs: "3px 5px", sm: "8px 16px" } }}>
           <Link to="/transliteration">Transliteration</Link>
         </ListItem>
-        <ListItem button sx={{ width: { xs: "auto", md: "100%"} }}>
+        <ListItem button sx={{ width: { md: "auto", xs: "100%", sm: "100%" }, padding: { xs: "3px 5px", sm: "8px 16px" } }}>
           <Link to="/about-us">About Us</Link>
         </ListItem>
       </List>
 
       <Box sx={{
-        height: 'calc(100vh - 68px)',
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
@@ -27,8 +26,6 @@ const Home = () => {
         padding: { lg: '1vw', sm: '10px' }
       }}>
         <Box>
-          <div className="control">
-          </div>
           <SelectLang />
         </Box>
         <Textarea />

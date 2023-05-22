@@ -8,12 +8,13 @@ function Textarea() {
 
   const [juwap, setJuwap] = useState("")
   const [clean, setClean] = useState(null)
+  const [text, setText] = useState('');
 
   function translate(e) {
     const data = {
       "body": {
-        "lang_from": window.localStorage.getItem("til1"),
-        "lang_to": window.localStorage.getItem("til2"),
+        "lang_from": window.localStorage.getItem("til1") ? window.localStorage.getItem("til1") : "kaa",
+        "lang_to": window.localStorage.getItem("til2") ? window.localStorage.getItem("til2") : "uz",
         "text": e.target.value
       }
     }
@@ -30,9 +31,9 @@ function Textarea() {
     e.target.style.borderColor = e.target.value.length >= 99 ? 'red' : 'black'
     setClean(e.target.value.length >= 1 ? <span className="clean"><i className="bi bi-x-lg"></i></span> : null)
   }
-
-  const [text, setText] = useState('');
+  
   const tekst = useRef(null)
+  const result_text = useRef(null)
 
   function tekser() {
     tekst.current.value = "";
@@ -44,7 +45,7 @@ function Textarea() {
     console.log(navigator.clipboard.readText())
   }
   function copyText() {
-    navigator.clipboard.writeText('a')
+    navigator.clipboard.writeText(result_text.current.value)
   }
 
   return (
@@ -59,17 +60,18 @@ function Textarea() {
           placeholder="Tekst kiritiń..." 
           maxLength={5000}
           onChange={translate}
+          onPaste={translate}
           ref={tekst}
         />
-        <div className="control">
+        <div className="text-control">
           <div className="paste" onClick={pasteText}><ContentPasteIcon /></div>
-          <div className="limit">{text.length} / 5000</div>
+          <div className="limit" style={{ userSelect: "none" }}>{text.length} / 5000</div>
         </div>
       </Box>
       <Box sx={{ position: "relative", width: "100%" }}>
-        <textarea value={juwap} placeholder="Awdarması..."></textarea>
-        <div className="control">
-          <div className="copy"><ContentCopyIcon /></div>
+        <textarea value={juwap} placeholder="Awdarması..." ref={result_text}></textarea>
+        <div className="text-control">
+          <div className="copy" onClick={copyText}><ContentCopyIcon /></div>
         </div>
       </Box>
     </div>

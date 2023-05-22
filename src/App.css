@@ -1,6 +1,5 @@
 .navbar-container {
   height: 70px;
-
 }
 
 .navbar-container ul {
@@ -8,8 +7,6 @@
   list-style-type: none;
   gap: 1rem;
 }
-
-
 
 .textarea-wrapper {
   width: 100%;
@@ -20,7 +17,7 @@
 .textarea-wrapper textarea {
   width: 100%;
   min-height: 450px;
-  padding: 0.7rem;
+  padding: 0.7rem 2rem 2rem 0.7rem;
   resize: none;
   border-radius: 1rem;
 }
@@ -62,14 +59,17 @@
   height: 100%;
 }
 
-.control {
+.text-control {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 8px;
+  left: 5px;
   display: flex;
-  width: 100%;
-  padding: 0.7rem;
+  align-items: center;
+  width: calc(100% - 30px);
+  padding: 0.5rem;
   justify-content: space-between;
+  border-radius: 15px;
+  background-color: #fff;
 }
 .paste, .copy {
   cursor: pointer;
@@ -77,4 +77,15 @@
 
 .paste:hover > *, .copy:hover > * {
   transform: scale(1.15);
+}
+
+@media (max-width: 576px) {
+  .textarea-wrapper {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 576px) {
+  .textarea-wrapper textarea {
+    min-height: 250px;
+  }
 }

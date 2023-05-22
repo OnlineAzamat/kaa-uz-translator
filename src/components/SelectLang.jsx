@@ -1,12 +1,14 @@
-import * as React from 'react';
+/* eslint-disable react/no-unescaped-entities */
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useState } from 'react';
 
 export default function SelectLang() {
-  const [til, setTil] = React.useState('');
 
+  const [til, setTil] = useState('');
+  
   const til1 = window.localStorage.getItem('til1');
   const til2 = window.localStorage.getItem('til2');
 
