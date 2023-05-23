@@ -37,6 +37,9 @@ function Textarea() {
 
   function tekser() {
     tekst.current.value = "";
+    setJuwap("");
+    setText("");
+    setClean(null)
   }
 
   function pasteText() {

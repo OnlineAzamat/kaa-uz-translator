@@ -14,6 +14,9 @@
   padding: 10px 20px;
   cursor: pointer;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.2s;
 }
 
@@ -28,8 +31,12 @@
 /* Change language */
 .change-lang {
   margin-right: 1rem;
+  position: relative;
 }
 .lang-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,6 +45,7 @@
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s;
+  z-index: 10;
 }
 .lang-icon:hover {
   background-color: #efefef;
@@ -45,11 +53,63 @@
 .lang-icon:active {
   border-radius: 10px;
 }
+.langs {
+  display: none;
+  padding: 2.5rem 0.8rem 0.8rem;
+  gap: 0.5rem;
+  background-color: #efefef;
+  position: absolute;
+  border-radius: 15px;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.langs .lang-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 110px;
+  border-radius: 2rem;
+  padding: 0.6rem 0.8rem;
+  transition: all 0.2s;
+}
+.lang-item:hover {
+  background-color: #ddd;
+}
+.lang-item.kaa {
+  width: 150px;
+}
+.lang-item .lang-flag {
+  width: 20px;
+  height: 20px;
+}
+.lang-flag img {
+  width: 100%;
+  height: 100%;
+}
+.lang-item span {
+  display: inline-block;
+  user-select: none;
+}
+.lang-icon:hover ~ .langs {
+  animation: langs .3s;
+}
+@keyframes langs {
+  0% {
+    background-color: #efefef;
+    width: 2.8em;
+    height: 2.8em;
+  }
+  100% {
+    display: flex;
+  }
+}
 
 .textarea-wrapper {
   width: 100%;
   display: flex;
   gap: 0.5rem;
+  margin-top: 1.5rem;
 }
 
 .textarea-wrapper textarea {
@@ -163,6 +223,13 @@
     width: 60%;
     text-align: center;
     padding: 0;
+  }
+  .navbar-item {
+    display: none;
+  }
+  .menu {
+    display: block;
+    padding: 1rem 0;
   }
   .textarea-wrapper {
     flex-wrap: wrap;
