@@ -45,7 +45,7 @@
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s;
-  z-index: 10;
+  z-index: 100;
 }
 .lang-icon:hover {
   background-color: #efefef;
@@ -60,9 +60,13 @@
   background-color: #efefef;
   position: absolute;
   border-radius: 15px;
+  z-index: 10;
   top: 0;
   right: 0;
   cursor: pointer;
+}
+.langs.active-lang {
+  display: flex;
 }
 .langs .lang-item {
   display: flex;
@@ -91,20 +95,34 @@
   display: inline-block;
   user-select: none;
 }
-.lang-icon:hover ~ .langs {
-  animation: langs .3s;
-}
-@keyframes langs {
-  0% {
-    background-color: #efefef;
-    width: 2.8em;
-    height: 2.8em;
-  }
-  100% {
-    display: flex;
-  }
+
+/* Select lang */
+.select-lang-container {
+  display: flex;
+  align-items: center;
 }
 
+.swap {
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s;
+  width: 2.5em;
+  height: 2.5em;
+}
+.swap:hover {
+  background-color: #efefef;
+}
+.swap:active svg {
+  transition: 0.3s;
+  transform: rotateZ(180deg);
+}
+
+/* Textarea */
 .textarea-wrapper {
   width: 100%;
   display: flex;
@@ -114,7 +132,7 @@
 
 .textarea-wrapper textarea {
   width: 100%;
-  min-height: 440px;
+  height: 85%;
   background-color: transparent;
   resize: none;
   outline: none;
@@ -215,26 +233,52 @@
 }
 
 @media (max-width: 576px) {
+  /* Navbar items 576px mobile */
   .navbar-items {
+    position: absolute;
+    left: -55vw;
+    padding: 15px 0;
+    background-color: #fff;
+    box-shadow: 0 7px 10px 1px #c8c8c8;
     flex-wrap: wrap;
     justify-content: center;
+    width: 50vw;
+    transition: all 0.2s;
+    z-index: 10;
   }
   .navbar-items a {
     width: 60%;
     text-align: center;
-    padding: 0;
-  }
-  .navbar-item {
-    display: none;
+    padding: 10px 0;
   }
   .menu {
     display: block;
     padding: 1rem 0;
+    margin-left: 0.4rem;
   }
+  .menu:hover ~ .navbar-items {
+    left: 0;
+  }
+
+  .langs{
+    flex-direction: column;
+  }
+
+  /* Select lang 576px mobile */
+  .select-lang-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: scale(0.9) translateX(-50%);
+  }
+  .swap {
+    margin: 0;
+  }
+
   .textarea-wrapper {
     flex-wrap: wrap;
   }
   .textarea-wrapper textarea {
-    min-height: 250px;
+    height: 100px;
   }
 }

@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
+import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 
 export default function SelectLang() {
 
@@ -26,14 +26,24 @@ export default function SelectLang() {
     }
   };
 
+  function swapSelectLang() {
+    if (til1 == "kaa") {
+      setTil("kaa")
+      window.localStorage.setItem("til2", "kaa")
+      window.localStorage.setItem("til1", "uz")
+    } else {
+      setTil("uz")
+      window.localStorage.setItem("til1", "kaa")
+      window.localStorage.setItem("til2", "uz")
+    }
+  }
+
   return (
-    <div>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">Til</InputLabel>
+    <div className='select-lang-container'>
+      <FormControl sx={{ m: 1, minWidth: 120, margin: { sm: "0", xs: "0" } }}>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          label="Til"
           onChange={handleChange}
           title="Kiritilgen tekst tili"
           value={til1 ? til1 : "kaa"}
@@ -42,7 +52,10 @@ export default function SelectLang() {
           <MenuItem value="uz">O'zbekcha</MenuItem>
         </Select>
       </FormControl>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
+      <div className="swap"onClick={swapSelectLang}>
+        <SwapHorizIcon />
+      </div>
+      <FormControl sx={{ m: 1, minWidth: 120, margin: { sm: "0", xs: "0" } }}>
         <Select
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}
