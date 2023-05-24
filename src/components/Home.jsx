@@ -11,11 +11,16 @@ import SelectLang from "./SelectLang";
 
 const Home = () => {
   const { t } = useTranslation();
+
   const [activeLang, setActiveLang] = useState("langs")
   const langs = useRef(null)
 
   function pageChangeLang() {
-    setActiveLang("langs active-lang")
+    if (activeLang === "langs") {
+      setActiveLang("langs active-lang")
+    } else {
+      setActiveLang("langs")
+    }
   }
 
   return (

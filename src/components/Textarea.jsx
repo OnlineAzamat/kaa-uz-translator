@@ -3,8 +3,10 @@ import { useRef, useState } from "react";
 import { Box } from "@mui/material";
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import { useTranslation } from "react-i18next";
 
 function Textarea() {
+  const { t } = useTranslation();
 
   const [juwap, setJuwap] = useState("")
   const [clean, setClean] = useState(null)
@@ -53,28 +55,28 @@ function Textarea() {
 
   return (
     <div className="textarea-wrapper">
-      <Box sx={{ position: "relative", width: "100%", padding: "0.7rem 2rem 2rem 0.7rem", borderRadius: "1rem", border: "1px solid black", height: { md: "500px", sm: "300px", xs: "200px"} }}>
+      <Box sx={{ position: "relative", width: "100%", padding: "0.7rem 2rem 2rem 0.7rem", borderRadius: "1rem", border: "1px solid black", height: { md: "500px", sm: "300px", xs: "220px"} }}>
         <span onClick={tekser}>
           {
             clean
           }
         </span>
         <textarea 
-          placeholder="Tekst kiritiń..." 
+          placeholder={t("enter_text")}
           maxLength={5000}
           onChange={translate}
           onPaste={translate}
           ref={tekst}
         />
         <div className="text-control">
-          <div className="paste-copy" onClick={pasteText}><ContentPasteIcon />Paste</div>
+          <div className="paste-copy" onClick={pasteText}><ContentPasteIcon />{t("paste")}</div>
           <div className="limit" style={{ userSelect: "none" }}>{text.length} / 5000</div>
         </div>
       </Box>
-      <Box sx={{ position: "relative", padding: "0.7rem 2rem 2rem 0.7rem", borderRadius: "1rem", width: "100%", border: "1px solid #fff", height: { md: "500px", sm: "300px", xs: "200px"}, background: "#efefef" }}>
-        <textarea value={juwap} placeholder="Awdarması..." ref={result_text}></textarea>
+      <Box sx={{ position: "relative", padding: "0.7rem 2rem 2rem 0.7rem", borderRadius: "1rem", width: "100%", border: "1px solid #fff", height: { md: "500px", sm: "300px", xs: "220px"}, background: "#efefef" }}>
+        <textarea value={juwap} placeholder={t("translate")} ref={result_text}></textarea>
         <div className="text-control">
-          <div className="paste-copy" onClick={copyText}><ContentCopyIcon />Copy</div>
+          <div className="paste-copy" onClick={copyText}><ContentCopyIcon />{t("copy")}</div>
         </div>
       </Box>
     </div>

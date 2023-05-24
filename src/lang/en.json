@@ -2,5 +2,9 @@
   "home": "Home",
   "transliteration": "Transliteration",
   "version": "Versions",
-  "title_text_language": "Input text language"
+  "title_text_language": "Input text language",
+  "enter_text": "Enter text ...",
+  "translate": "Translatetion ...",
+  "copy": "Copy",
+  "paste": "Paste"
 }

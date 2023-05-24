@@ -2,5 +2,9 @@
   "home": "Asosiy",
   "transliteration": "Transliteratsiya",
   "version": "Versiyalar",
-  "title_text_language": "Kiritlgan tekst tili"
+  "title_text_language": "Kiritlgan tekst tili",
+  "enter_text": "Matn kiriting ...",
+  "translate": "Tarjimasi ...",
+  "copy": "Nusxa",
+  "paste": "Qo'yish"
 }

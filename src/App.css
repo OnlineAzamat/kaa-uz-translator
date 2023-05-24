@@ -132,7 +132,7 @@
 
 .textarea-wrapper textarea {
   width: 100%;
-  height: 85%;
+  height: 90%;
   background-color: transparent;
   resize: none;
   outline: none;
@@ -201,6 +201,10 @@
   background-color: #f6f6f6;
   box-shadow: 0 0 14px 0 #dbdbdb;
 }
+.paste-copy:visited {
+  background-color: #c8c8c8;
+  box-shadow: 0 0 14px 0 #dbdbdb;
+}
 
 .menu {
   display: none;
@@ -267,7 +271,7 @@
   /* Select lang 576px mobile */
   .select-lang-container {
     position: absolute;
-    bottom: 0;
+    bottom: 3rem;
     left: 50%;
     transform: scale(0.9) translateX(-50%);
   }
@@ -279,6 +283,15 @@
     flex-wrap: wrap;
   }
   .textarea-wrapper textarea {
-    height: 100px;
+    height: 170px;
+  }
+  .text-control {
+    padding: 0 0 8px;
+  }
+  .paste-copy {
+    transform: scale(0.8);
+  }
+  .limit {
+    font-size: 0.9rem;
   }
 }
