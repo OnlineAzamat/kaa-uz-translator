@@ -201,16 +201,17 @@
   background-color: #f6f6f6;
   box-shadow: 0 0 14px 0 #dbdbdb;
 }
-.paste-copy:visited {
+.paste-copy:active {
   background-color: #c8c8c8;
   box-shadow: 0 0 14px 0 #dbdbdb;
+  transform: scale(0.85);
 }
 
 .menu {
   display: none;
 }
 .menu div {
-  display: flex; /* flex */
+  display: flex;
   flex-wrap: wrap;
   width: 2rem;
   height: 1.8rem;
