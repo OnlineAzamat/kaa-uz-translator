@@ -5,7 +5,7 @@ import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { useTranslation } from "react-i18next";
 
-function Textarea() {
+function Textarea({ langFrom, langTo, transType }) {
   const { t } = useTranslation();
 
   const [juwap, setJuwap] = useState("")
@@ -15,13 +15,13 @@ function Textarea() {
   function translate(e) {
     const data = {
       "body": {
-        "lang_from": window.localStorage.getItem("til1") ? window.localStorage.getItem("til1") : "kaa",
-        "lang_to": window.localStorage.getItem("til2") ? window.localStorage.getItem("til2") : "uz",
+        "lang_from": langFrom,
+        "lang_to": langTo,
         "text": e.target.value
       }
     }
 
-    axios.post('https://api.from-to.uz/api/v1/translate', data)
+    axios.post(`https://api.from-to.uz/api/v1/${transType}`, data)
       .then(res => {
         setJuwap(res?.data?.result)
       })

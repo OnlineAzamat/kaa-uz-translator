@@ -6,5 +6,7 @@
   "enter_text": "Matn kiriting ...",
   "translate": "Tarjimasi ...",
   "copy": "Nusxa",
-  "paste": "Qo'yish"
+  "paste": "Qo'yish",
+  "input_text_language": "Kiritilgan matn tili",
+  "translated_text_language": "Tarjima qilingan matn tili"
 }

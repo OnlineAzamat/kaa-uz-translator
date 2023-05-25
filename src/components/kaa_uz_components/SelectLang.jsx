@@ -4,8 +4,11 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
+import { useTranslation } from 'react-i18next';
 
 export default function SelectLang() {
+
+  const { t } = useTranslation();
 
   const [til, setTil] = useState('');
   
@@ -45,8 +48,8 @@ export default function SelectLang() {
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
           onChange={handleChange}
-          title="Kiritilgen tekst tili"
-          value={til1 ? til1 : "kaa"}
+          title={t("input_text_language")}
+          value={til1 == "kaa" ? til1 : "uz"}
         >
           <MenuItem value="kaa">Qaraqalpaqsha</MenuItem>
           <MenuItem value="uz">O'zbekcha</MenuItem>
@@ -59,8 +62,8 @@ export default function SelectLang() {
         <Select
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}
-          title="Awdarmalangan tekst tili"
-          value={til2 ? til2 : "uz"}
+          title={t("translated_text_language")}
+          value={til2 == "uz" ? til2 : "kaa"}
           disabled
         >
           <MenuItem value="kaa">Qaraqalpaqsha</MenuItem>

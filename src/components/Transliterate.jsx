@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+
 import { Box } from "@mui/material";
 
 import Textarea from "./Textarea";
-import SelectLang from "./kaa_uz_components/SelectLang";
+import SelectLang from "./transliterate/SelectLang";
 import Navbar from "./Navbar";
 
-const Home = () => {
+const Transliterate = () => {
 
   const [langFrom, setLangFrom] = useState('');
   const [langTo, setLangTo] = useState('');
@@ -35,10 +36,10 @@ const Home = () => {
         <Box>
           <SelectLang />
         </Box>
-        <Textarea langFrom={langFrom} langTo={langTo} transType={"translate"} />
+        <Textarea langFrom={langFrom} langTo={langTo} transType={"transliterate"} />
       </Box>
     </Box>
   )
 }
 
-export default Home
+export default Transliterate

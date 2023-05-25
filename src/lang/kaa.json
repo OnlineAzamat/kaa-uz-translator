@@ -6,5 +6,7 @@
   "enter_text": "Tekst kiritiń ...",
   "translate": "Awdarması ...",
   "copy": "Nusqa",
-  "paste": "Kóshiriw"
+  "paste": "Kóshiriw",
+  "input_text_language": "Kiritilgen tekst tili",
+  "translated_text_language": "Awdarmalanǵan tekst tili"
 }

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import './App.css';
 import Home from "./components/Home";
-import Transliteration from "./components/Transliteration"
+import Transliterate from "./components/Transliterate"
 import About from "./components/About";
 import i18n from "./lang/i18";
 
@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/transliteration" element={<Transliteration />} />
+          <Route path="/transliterate" element={<Transliterate />} />
           <Route path="/about-us" element={<About />} />
         </Routes>
       </BrowserRouter>
