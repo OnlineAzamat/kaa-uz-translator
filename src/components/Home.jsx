@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { changeLanguage } from "i18next";
 
 import { Box } from "@mui/material";
 import { Translate } from "@mui/icons-material";
@@ -15,12 +16,16 @@ const Home = () => {
   const [activeLang, setActiveLang] = useState("langs")
   const langs = useRef(null)
 
-  function pageChangeLang() {
+  function pageLang() {
     if (activeLang === "langs") {
       setActiveLang("langs active-lang")
     } else {
       setActiveLang("langs")
     }
+  }
+
+  const pageChangeLang = (lang) => {
+    changeLanguage(lang);
   }
 
   return (
@@ -52,23 +57,23 @@ const Home = () => {
         </ul>
 
         <div className="change-lang">
-          <div className="lang-icon" onClick={pageChangeLang}>
+          <div className="lang-icon" onClick={pageLang}>
             <Translate />
           </div>
           <div className={activeLang} ref={langs}>
-            <div className="lang-item">
+            <div className="lang-item" onClick={() => pageChangeLang("en")}>
               <div className="lang-flag">
                 <img src="https://static10.tgstat.ru/channels/_0/87/87209f5fafe72b6248c2c912a53a1685.jpg" alt="en flag" />
               </div>
               <span>English</span>
             </div>
-            <div className="lang-item">
+            <div className="lang-item" onClick={() => pageChangeLang("uz")}>
               <div className="lang-flag">
                 <img src="https://cdn4.iconfinder.com/data/icons/world-flags-circular/1000/Flag_of_Uzbekistan_-_Circle-512.png" alt="uz flag" />
               </div>
               <span>O'zbek</span>
             </div>
-            <div className="lang-item kaa">
+            <div className="lang-item kaa" onClick={() => pageChangeLang("kaa")}>
               <div className="lang-flag">
                 <img src="https://ca-most.ru/images/kk.png" alt="uz flag" />
               </div>

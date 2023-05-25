@@ -195,6 +195,7 @@
   border-radius: 1.5rem;
   background-color: #efefef;
   padding: 8px 12px;
+  user-select: none;
   transition: .3s;
 }
 .paste-copy:hover {
