@@ -5,8 +5,6 @@ import Transliterate from "./components/Transliterate"
 import About from "./components/About";
 import i18n from "./lang/i18";
 
-import { Analytics } from "@vercel/analytics/react";
-
 function App() {
 
   return (
@@ -15,7 +13,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/transliterate" element={<Transliterate />} />
           <Route path="/about-us" element={<About />} />
-          <Analytics />
         </Routes>
       </BrowserRouter>
   )

@@ -1,5 +1,5 @@
 ﻿# Welcome to kaa-uz-translator!
 
-> Source: [From-to.uz](https://from-to.uz)
+> API: [From-to.uz](https://from-to.uz/api-docs)
 
 > Content-length: 5000
