@@ -193,14 +193,13 @@
   align-items: center;
   gap: 5px;
   border-radius: 1.5rem;
-  background-color: #efefef;
+  border: 1.5px solid #f6f6f6;
   padding: 8px 12px;
   user-select: none;
   transition: 0.3s;
 }
 .paste-copy:hover {
   background-color: #f6f6f6;
-  box-shadow: 0 0 14px 0 #dbdbdb;
 }
 .paste-copy:active {
 transition: 0.05s;
