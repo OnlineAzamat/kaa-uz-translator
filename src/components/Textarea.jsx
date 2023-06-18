@@ -67,7 +67,7 @@ function Textarea({ langFrom, langTo, transType }) {
           onChange={translate}
           onPaste={translate}
           ref={tekst}
-        />
+        /> 
         <div className="text-control">
           <div className="paste-copy" onClick={pasteText}><ContentPasteIcon />{t("paste")}</div>
           <div className="limit" style={{ userSelect: "none" }}>{text.length} / 5000</div>
