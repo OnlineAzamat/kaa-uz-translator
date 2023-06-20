@@ -127,7 +127,7 @@
   display: flex;
   align-items: center;
 }
-
+/* bir btn menen tildi almastiriw */
 .swap {
   color: #000;
   display: flex;
@@ -168,8 +168,8 @@
 .textarea-wrapper span.clean {
   display: block;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.8vw;
+  right: 0.8vw;
   border-radius: 50%;
   width: 2.2rem;
   height: 2.2rem;
