@@ -8,5 +8,6 @@
   "copy": "Copy",
   "paste": "Paste",
   "input_text_language": "Input text language",
-  "translated_text_language": "Translated text language"
+  "translated_text_language": "Translated text language",
+  "go_to_app": "Service"
 }
