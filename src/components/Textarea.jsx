@@ -13,21 +13,28 @@ function Textarea({ langFrom, langTo, transType }) {
   const [text, setText] = useState('');
 
   function translate(e) {
-    const data = {
-      "body": {
-        "lang_from": langFrom,
-        "lang_to": langTo,
-        "text": e.target.value
-      }
-    }
+    // const data = {
+    //   "body": {
+    //     "lang_from": langFrom,
+    //     "lang_to": langTo,
+    //     "text": e.target.value
+    //   }
+    // }
 
-    axios.post(`https://api.from-to.uz/api/v1/${transType}`, data)
-      .then(res => {
-        setJuwap(res?.data?.result)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    // axios.post(`https://api.from-to.uz/api/v1/${transType}`, data)
+    //   .then(res => {
+    //     setJuwap(res?.data?.result)
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
+    axios.post("https://api.diyarbek.uz/awdarma", {
+      "text": e.target.value,
+      "lang_from": langFrom,
+      "lang_to": langTo
+    })
+      .then(res => setJuwap(res?.awdarma))
+      .catch(err => console.log(err))
     setText(e.target.value)
 
     e.target.style.borderColor = e.target.value.length >= 99 ? 'red' : 'black'
@@ -54,7 +61,7 @@ function Textarea({ langFrom, langTo, transType }) {
   const textarea1Ref = useRef(null);
   const textarea2Ref = useRef(null);
 
-  const handleScroll = (event) => {
+  const handleScroll = () => {
     setScrollPosition(textarea1Ref.current.scrollTop);
     textarea2Ref.current.scrollTop = textarea1Ref.current.scrollTop;
   }
