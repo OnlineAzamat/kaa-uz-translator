@@ -13,32 +13,36 @@ function Textarea({ langFrom, langTo, transType }) {
   const [text, setText] = useState('');
 
   function translate(e) {
-    const data = {
-      "body": {
-        "lang_from": langFrom,
-        "lang_to": langTo,
-        "text": e.target.value
-      }
-    }
+    // const data = {
+    //   "body": {
+    //     "lang_from": langFrom,
+    //     "lang_to": langTo,
+    //     "text": e.target.value
+    //   }
+    // }
 
-    axios.post(`https://api.from-to.uz/api/v1/${transType}`, data)
-      .then(res => {
-        setJuwap(res?.data?.result)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    // axios.post(`https://api.from-to.uz/api/v1/${transType}`, data)
+    //   .then(res => {
+    //     setJuwap(res?.data?.result)
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
+    axios.post("https://api.diyarbek.uz/awdarma", {
+      "text": e.target.value,
+      "lang_from": langFrom,
+      "lang_to": langTo
+    })
+      .then(res => setJuwap(res?.awdarma))
+      .catch(err => console.log(err))
     setText(e.target.value)
 
     e.target.style.borderColor = e.target.value.length >= 99 ? 'red' : 'black'
     setClean(e.target.value.length >= 1 ? <span className="clean"><i className="bi bi-x-lg"></i></span> : null)
   }
   
-  const tekst = useRef(null)
-  const result_text = useRef(null)
-
   function tekser() {
-    tekst.current.value = "";
+    textarea1Ref.current.value = "";
     setJuwap("");
     setText("");
     setClean(null)
@@ -46,11 +50,20 @@ function Textarea({ langFrom, langTo, transType }) {
 
   function pasteText() {
     navigator.clipboard.readText()
-      .then(cliptext => tekst.current.value = cliptext)
+      .then(cliptext => textarea1Ref.current.value = cliptext)
     console.log(navigator.clipboard.readText())
   }
   function copyText() {
-    navigator.clipboard.writeText(result_text.current.value)
+    navigator.clipboard.writeText(textarea2Ref.current.value)
+  }
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const textarea1Ref = useRef(null);
+  const textarea2Ref = useRef(null);
+
+  const handleScroll = () => {
+    setScrollPosition(textarea1Ref.current.scrollTop);
+    textarea2Ref.current.scrollTop = textarea1Ref.current.scrollTop;
   }
 
   return (
@@ -66,15 +79,16 @@ function Textarea({ langFrom, langTo, transType }) {
           maxLength={5000}
           onChange={translate}
           onPaste={translate}
-          ref={tekst}
-        />
+          onScroll={handleScroll}
+          ref={textarea1Ref}
+        /> 
         <div className="text-control">
           <div className="paste-copy" onClick={pasteText}><ContentPasteIcon />{t("paste")}</div>
-          <div className="limit" style={{ userSelect: "none" }}>{text.length} / 5000</div>
+          <div className="limit" style={{ userSelect: "none" }}>{text.length} / 5000</div> 
         </div>
       </Box>
       <Box sx={{ position: "relative", padding: "0.7rem 2rem 2rem 0.7rem", borderRadius: "1rem", width: "100%", border: "1px solid #fff", height: { md: "500px", sm: "300px", xs: "220px"}, background: "#efefef" }}>
-        <textarea value={juwap} placeholder={t("translate")} ref={result_text}></textarea>
+        <textarea value={juwap} placeholder={t("translate")} ref={textarea2Ref} scrollTop={scrollPosition}></textarea>
         <div className="text-control">
           <div className="paste-copy" onClick={copyText}><ContentCopyIcon />{t("copy")}</div>
         </div>

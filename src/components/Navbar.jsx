@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { changeLanguage } from "i18next";
 import { useLocation } from "react-router";
 
-import { Translate } from "@mui/icons-material";
+import { Translate, LightMode, DarkMode, Launch } from "@mui/icons-material";
 
 const Navbar = () => {
   const { pathname } = useLocation()
@@ -13,6 +13,8 @@ const Navbar = () => {
   const { t } = useTranslation();
 
   const [activeLang, setActiveLang] = useState("langs")
+  const [theme, setTheme] = useState("light")
+
   const langs = useRef(null)
 
   function pageLang() {
@@ -25,6 +27,16 @@ const Navbar = () => {
 
   const pageChangeLang = (lang) => {
     changeLanguage(lang);
+  }
+
+  function changeTheme() {
+    if(theme === "light") {
+      setTheme("dark")
+      window.localStorage.setItem("theme", "dark")
+    } else {
+      setTheme("light")
+      window.localStorage.setItem("theme", "light")
+    }
   }
 
   return (
@@ -47,7 +59,19 @@ const Navbar = () => {
             {t('transliteration')}
           </li>
         </Link>
+        <Link to="https://from-to.uz" target="blank" className={"navbar-item"}>
+          <li style={{ display: "flex", alignItems: "center" }}>
+            {t('go_to_app')}
+            <Launch sx={{ fontSize: "1rem", marginLeft: "2px" }}/>
+          </li>
+        </Link>
       </ul>
+
+      {/* <div className="theme">
+        <div className="theme-icon" onClick={changeTheme}>
+          <DarkMode sx={{ color: 'green' }} />
+        </div>
+      </div> */}
 
       <div className="change-lang">
         <div className="lang-icon" onClick={pageLang}>

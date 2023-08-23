@@ -22,7 +22,10 @@ const Home = () => {
   }, []);
 
   return (
-    <Box sx={{ padding: { xs: "10px" } }}>
+    <Box sx={{ 
+        padding: { xs: "10px" }, 
+        background: window.localStorage.getItem("theme") == "light" ? "#fff" : "000", 
+        minHeight: "100vh" }}>
       <Navbar />
 
       <Box sx={{
