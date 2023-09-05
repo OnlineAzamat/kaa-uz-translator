@@ -5,6 +5,7 @@ import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { useTranslation } from "react-i18next";
 
+// eslint-disable-next-line react/prop-types
 function Textarea({ langFrom, langTo, transType }) {
   const { t } = useTranslation();
 
@@ -54,7 +55,7 @@ function Textarea({ langFrom, langTo, transType }) {
   const textarea1Ref = useRef(null);
   const textarea2Ref = useRef(null);
 
-  const handleScroll = (event) => {
+  const handleScroll = () => {
     setScrollPosition(textarea1Ref.current.scrollTop);
     textarea2Ref.current.scrollTop = textarea1Ref.current.scrollTop;
   }
@@ -81,7 +82,7 @@ function Textarea({ langFrom, langTo, transType }) {
         </div>
       </Box>
       <Box sx={{ position: "relative", padding: "0.7rem 2rem 2rem 0.7rem", borderRadius: "1rem", width: "100%", border: "1px solid #fff", height: { md: "500px", sm: "300px", xs: "220px"}, background: "#efefef" }}>
-        <textarea value={juwap} placeholder={t("translate")} ref={textarea2Ref} scrollTop={scrollPosition}></textarea>
+        <textarea value={juwap} placeholder={t("translate")} ref={textarea2Ref} scrolltop={scrollPosition} readOnly></textarea>
         <div className="text-control">
           <div className="paste-copy" onClick={copyText}><ContentCopyIcon />{t("copy")}</div>
         </div>
