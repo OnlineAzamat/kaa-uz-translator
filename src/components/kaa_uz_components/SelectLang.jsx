@@ -6,7 +6,11 @@ import { useState } from 'react';
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 import { useTranslation } from 'react-i18next';
 
+import Languages from '../Languages';
+
 export default function SelectLang() {
+  const [langs, setLangs] = useState(false);
+  const [checkLang, setCheckLang] = useState();
 
   const { t } = useTranslation();
 
@@ -41,6 +45,25 @@ export default function SelectLang() {
     }
   }
 
+  function lang2(lang) {
+    window.localStorage.setItem("til2", lang)
+  }
+  function lang1(lang) {
+    window.localStorage.setItem("til1", lang)
+  }
+
+  function otherLang(til) {
+    if(til == "til1") {
+      setCheckLang("til1")
+    } else {
+      setCheckLang("til2")
+    }
+    setLangs(true)
+  }
+  function close() {
+    setLangs(false)
+  }
+
   return (
     <div className='select-lang-container'>
       <FormControl sx={{ m: 1, minWidth: 120, margin: { sm: "0", xs: "0" } }}>
@@ -55,6 +78,7 @@ export default function SelectLang() {
           <MenuItem value="uz">O'zbekcha</MenuItem>
         </Select>
       </FormControl>
+      <button className="more-languages" onClick={() => otherLang("til1")}><i className="bi bi-chevron-down" style={{ transform: `rotate(${langs ? 180 : 0}deg)`, display: "block", transition: ".25s" }}></i></button>
       <div className="swap"onClick={swapSelectLang}>
         <SwapHorizIcon />
       </div>
@@ -70,6 +94,8 @@ export default function SelectLang() {
           <MenuItem value="uz">O'zbekcha</MenuItem>
         </Select>
       </FormControl>
+      <button className="more-languages" onClick={() => otherLang("til2")}><i className="bi bi-chevron-down" style={{ transform: `rotate(${langs ? 180 : 0}deg)`, display: "block", transition: ".25s" }}></i></button>
+      {langs ? <Languages close={close} lang2={lang2} lang1={lang1} checkLang={checkLang} /> : null}
     </div>
   );
 }
